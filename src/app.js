@@ -12,8 +12,18 @@ let app = {
 let bearOne = {
     name: 'Yogi Bear!!!',
     age: 540,
-    location: 'Lani\'i'
+    // location: 'Lani\'i'
 };
+
+let getLocation = (object) =>{
+    if(object.location){
+        return object.location;
+    }else{
+        return 'Unknown';
+    }
+};
+
+let getLocationTwo = (object) => object.location? object.location : 'Bubba';
 
 let template = (
     <div>
@@ -26,14 +36,15 @@ let template = (
         </ol>
     </div>
 );
+
 let templateTwo = (
     <div>
         <h1>Name: {bearOne.name}</h1>
         <p>Age :{bearOne.age}</p>
-        <p>Location: {bearOne.location}</p>
+        <p>Location: {getLocationTwo(bearOne)}</p>
     </div>
 )
-
+;
 let appRoot = document.getElementById('react-container');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
