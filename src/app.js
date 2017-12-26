@@ -9,21 +9,13 @@ let app = {
     itemThree: 'Item Three'
 };
 
-let bearOne = {
-    name: 'Yogi Bear!!!',
-    age: 540,
-    // location: 'Lani\'i'
+let user = {
+    name: 'Kat Fight!!!',
+    age: 98,
+    location: 'Lani\'i'
 };
 
-let getLocation = (object) =>{
-    if(object.location){
-        return object.location;
-    }else{
-        return 'Unknown';
-    }
-};
-
-let getLocationTwo = (object) => object.location? object.location : 'Bubba';
+let getLocation = (object) => object.location? <p>Location: {object.location}</p> : <p>Location: Bubba</p>;
 
 let template = (
     <div>
@@ -39,9 +31,9 @@ let template = (
 
 let templateTwo = (
     <div>
-        <h1>Name: {bearOne.name}</h1>
-        <p>Age :{bearOne.age}</p>
-        <p>Location: {getLocationTwo(bearOne)}</p>
+        <h1>Name: {user.name ? user.name : 'AnonyMoose'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age} </p>}
+        {getLocation(user)}
     </div>
 )
 ;

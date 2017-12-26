@@ -11,22 +11,23 @@ var app = {
     itemThree: 'Item Three'
 };
 
-var bearOne = {
-    name: 'Yogi Bear!!!',
-    age: 540
-    // location: 'Lani\'i'
+var user = {
+    name: 'Kat Fight!!!',
+    age: 98,
+    location: 'Lani\'i'
 };
 
 var getLocation = function getLocation(object) {
-    if (object.location) {
-        return object.location;
-    } else {
-        return 'Unknown';
-    }
-};
-
-var getLocationTwo = function getLocationTwo(object) {
-    return object.location ? object.location : 'Bubba';
+    return object.location ? React.createElement(
+        'p',
+        null,
+        'Location: ',
+        object.location
+    ) : React.createElement(
+        'p',
+        null,
+        'Location: Bubba'
+    );
 };
 
 var template = React.createElement(
@@ -70,20 +71,16 @@ var templateTwo = React.createElement(
         'h1',
         null,
         'Name: ',
-        bearOne.name
+        user.name ? user.name : 'AnonyMoose'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
-        'Age :',
-        bearOne.age
+        'Age: ',
+        user.age,
+        ' '
     ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        getLocationTwo(bearOne)
-    )
+    getLocation(user)
 );
 var appRoot = document.getElementById('react-container');
 
