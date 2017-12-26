@@ -1,19 +1,21 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
+
+let temp = {
+    title: 'This is JSX!!!',
+    subtitle: 'JSX is awesome yo!'
+};
+
 let bearOne = {
     name: 'Yogi Bear!!!',
     age: 540,
     location: 'Lani\'i'
 };
 
-let itemOne = {};
-itemOne.sentence = 'This is JSX!';
-itemOne.info = 'yo!!!!';
-
 let template = (
     <div>
-        <h1>{itemOne.sentence}</h1>
-        <h2>{itemOne.greeting}</h2>
+        <h1>{temp.title}</h1>
+        <h2>{temp.subtitle}</h2>
     </div>
 );
 let templateTwo = (
@@ -26,4 +28,4 @@ let templateTwo = (
 
 let appRoot = document.getElementById('react-container');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

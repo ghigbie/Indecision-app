@@ -2,15 +2,17 @@
 
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
+
+var temp = {
+    title: 'This is JSX!!!',
+    subtitle: 'JSX is awesome yo!'
+};
+
 var bearOne = {
     name: 'Yogi Bear!!!',
     age: 540,
     location: 'Lani\'i'
 };
-
-var itemOne = {};
-itemOne.sentence = 'This is JSX!';
-itemOne.info = 'yo!!!!';
 
 var template = React.createElement(
     'div',
@@ -18,12 +20,12 @@ var template = React.createElement(
     React.createElement(
         'h1',
         null,
-        itemOne.sentence
+        temp.title
     ),
     React.createElement(
         'h2',
         null,
-        itemOne.greeting
+        temp.subtitle
     )
 );
 var templateTwo = React.createElement(
@@ -51,4 +53,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
