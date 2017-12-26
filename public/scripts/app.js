@@ -12,6 +12,32 @@ var app = {
     options: ['option one', 'option two']
 };
 
+var options = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h3',
+        null,
+        'Here are your options:'
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options[0]
+    ),
+    React.createElement(
+        'p',
+        null,
+        app.options[1]
+    )
+);
+
+var noOptions = React.createElement(
+    'h3',
+    null,
+    'No options for you!!!'
+);
+
 var user = {
     name: 'Kat Fight!!!',
     age: 98,
@@ -44,25 +70,7 @@ var template = React.createElement(
         null,
         app.subtitle
     ),
-    app.options.length > 0 && React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h3',
-            null,
-            'Here are your options:'
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options[0]
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options[1]
-        )
-    ),
+    app.options.length > 0 ? options : noOptions,
     React.createElement(
         'ol',
         null,

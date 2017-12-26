@@ -10,6 +10,12 @@ let app = {
     options: ['option one', 'option two']
 };
 
+let options = <div><h3>Here are your options:</h3>
+            <p>{app.options[0]}</p>
+            <p>{app.options[1]}</p></div>;
+            
+let noOptions = <h3>No options for you!!!</h3>;
+
 let user = {
     name: 'Kat Fight!!!',
     age: 98,
@@ -22,9 +28,7 @@ let template = (
     <div>
         <h1>{app.title}</h1>
         {app.subtitle && <h2>{app.subtitle}</h2>}
-        {app.options.length > 0 && <div><h3>Here are your options:</h3>
-            <p>{app.options[0]}</p>
-            <p>{app.options[1]}</p></div>}
+        {app.options.length > 0 ? options : noOptions}
         <ol>
             <li>{app.itemOne}</li>
             <li>{app.itemTwo}</li>
