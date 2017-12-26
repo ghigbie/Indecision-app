@@ -2,6 +2,15 @@
 
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
+var bearOne = {
+    name: 'Yogi Bear!!!',
+    age: 540,
+    location: 'Lani\'i'
+};
+
+var itemOne = {};
+itemOne.sentence = 'This is JSX!';
+itemOne.info = 'yo!!!!';
 
 var template = React.createElement(
     'div',
@@ -9,12 +18,12 @@ var template = React.createElement(
     React.createElement(
         'h1',
         null,
-        'This is JSX!!!'
+        itemOne.sentence
     ),
     React.createElement(
         'h2',
         null,
-        'Yo!'
+        itemOne.greeting
     )
 );
 var templateTwo = React.createElement(
@@ -23,17 +32,20 @@ var templateTwo = React.createElement(
     React.createElement(
         'h1',
         null,
-        'Name: Yogi Bear'
+        'Name: ',
+        bearOne.name
     ),
     React.createElement(
         'p',
         null,
-        'Age: 500'
+        'Age :',
+        bearOne.age
     ),
     React.createElement(
         'p',
         null,
-        'Location: Liverpool'
+        'Location: ',
+        bearOne.location
     )
 );
 
