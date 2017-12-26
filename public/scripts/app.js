@@ -3,9 +3,12 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
 
-var temp = {
-    title: 'This is JSX!!!',
-    subtitle: 'JSX is awesome yo!'
+var app = {
+    title: 'Indecison App',
+    subtitle: 'Put your life in the hands of a computer!',
+    itemOne: 'Item One',
+    itemTwo: 'Item Two',
+    itemThree: 'Item Three'
 };
 
 var bearOne = {
@@ -20,12 +23,31 @@ var template = React.createElement(
     React.createElement(
         'h1',
         null,
-        temp.title
+        app.title
     ),
     React.createElement(
         'h2',
         null,
-        temp.subtitle
+        app.subtitle
+    ),
+    React.createElement(
+        'ol',
+        null,
+        React.createElement(
+            'li',
+            null,
+            app.itemOne
+        ),
+        React.createElement(
+            'li',
+            null,
+            app.itemTwo
+        ),
+        React.createElement(
+            'li',
+            null,
+            app.itemThree
+        )
     )
 );
 var templateTwo = React.createElement(
