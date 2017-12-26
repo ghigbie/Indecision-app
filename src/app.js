@@ -6,7 +6,8 @@ let app = {
     subtitle: 'Put your life in the hands of a computer!',
     itemOne: 'Item One',
     itemTwo: 'Item Two',
-    itemThree: 'Item Three'
+    itemThree: 'Item Three',
+    options: ['option one', 'option two']
 };
 
 let user = {
@@ -20,7 +21,10 @@ let getLocation = (object) => object.location? <p>Location: {object.location}</p
 let template = (
     <div>
         <h1>{app.title}</h1>
-        <h2>{app.subtitle}</h2>
+        {app.subtitle && <h2>{app.subtitle}</h2>}
+        {app.options.length > 0 && <div><h3>Here are your options:</h3>
+            <p>{app.options[0]}</p>
+            <p>{app.options[1]}</p></div>}
         <ol>
             <li>{app.itemOne}</li>
             <li>{app.itemTwo}</li>
@@ -39,4 +43,4 @@ let templateTwo = (
 ;
 let appRoot = document.getElementById('react-container');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);

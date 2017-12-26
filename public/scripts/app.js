@@ -8,7 +8,8 @@ var app = {
     subtitle: 'Put your life in the hands of a computer!',
     itemOne: 'Item One',
     itemTwo: 'Item Two',
-    itemThree: 'Item Three'
+    itemThree: 'Item Three',
+    options: ['option one', 'option two']
 };
 
 var user = {
@@ -38,10 +39,29 @@ var template = React.createElement(
         null,
         app.title
     ),
-    React.createElement(
+    app.subtitle && React.createElement(
         'h2',
         null,
         app.subtitle
+    ),
+    app.options.length > 0 && React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h3',
+            null,
+            'Here are your options:'
+        ),
+        React.createElement(
+            'p',
+            null,
+            app.options[0]
+        ),
+        React.createElement(
+            'p',
+            null,
+            app.options[1]
+        )
     ),
     React.createElement(
         'ol',
@@ -84,4 +104,4 @@ var templateTwo = React.createElement(
 );
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
