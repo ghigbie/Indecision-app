@@ -17,7 +17,26 @@ var template = React.createElement(
         'Yo!'
     )
 );
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Name: Yogi Bear'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Age: 500'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: Liverpool'
+    )
+);
 
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
