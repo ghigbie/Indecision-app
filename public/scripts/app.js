@@ -2,6 +2,7 @@
 
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
+/*globa ReactDOM*/
 
 var app = {
     title: 'Indecison App',
@@ -94,41 +95,46 @@ var template = React.createElement(
 
 var count = 0;
 var increment = function increment(incrementValue) {
-    console.log("yo!++");
+    count++;
+    renderCounterApp();
 };
 var decrement = function decrement(decrementValue) {
-    console.log("yo!--");
+    count > 0 ? count-- : count = 0;
+    renderCounterApp();
 };
 var reset = function reset() {
-    console.log("Reset yo!");
+    count = 0;
+    renderCounterApp();
 };
 
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = React.createElement(
+        'div',
         null,
-        'Count: ',
-        count
-    ),
-    React.createElement(
-        'button',
-        { className: 'btn btn-default', id: 'increment', onClick: increment },
-        '+1'
-    ),
-    React.createElement(
-        'button',
-        { className: 'btn btn-default', id: 'decrement', onClick: decrement },
-        '-1'
-    ),
-    React.createElement(
-        'button',
-        { className: 'btn btn-default', id: 'reset', onClick: reset },
-        'Reset'
-    )
-);
+        React.createElement(
+            'h1',
+            null,
+            'Count: ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { className: 'btn btn-default', id: 'increment', onClick: increment },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { className: 'btn btn-default', id: 'decrement', onClick: decrement },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { className: 'btn btn-default', id: 'reset', onClick: reset },
+            'Reset'
+        )
+    );
+    var appRoot = document.getElementById('react-container');
+    ReactDOM.render(templateTwo, appRoot);
+};
 
-var appRoot = document.getElementById('react-container');
-
-ReactDOM.render(templateTwo, appRoot);
+renderCounterApp();

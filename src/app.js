@@ -1,5 +1,6 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
+/*globa ReactDOM*/
 
 const app = {
     title: 'Indecison App',
@@ -39,24 +40,29 @@ const template = (
 
 let count = 0;
 const increment = (incrementValue) => {
-    console.log("yo!++");
+    count++;
+    renderCounterApp();
 };
 const decrement = (decrementValue) => {
-    console.log("yo!--");
+    count > 0 ? count-- : count = 0;
+    renderCounterApp();
 };
 const reset = () => {
-    console.log("Reset yo!");
+    count = 0;
+    renderCounterApp();
 };
 
-const templateTwo = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button className="btn btn-default" id="increment" onClick={increment}>+1</button>
-        <button className="btn btn-default" id="decrement" onClick={decrement}>-1</button>
-        <button className="btn btn-default" id="reset" onClick={reset}>Reset</button>
-    </div>
-);
+const renderCounterApp = () => {
+    const templateTwo = (
+        <div>
+            <h1>Count: {count}</h1>
+            <button className="btn btn-default" id="increment" onClick={increment}>+1</button>
+            <button className="btn btn-default" id="decrement" onClick={decrement}>-1</button>
+            <button className="btn btn-default" id="reset" onClick={reset}>Reset</button>
+        </div>
+    );
+    const appRoot = document.getElementById('react-container');
+    ReactDOM.render(templateTwo, appRoot);
+};
 
-const appRoot = document.getElementById('react-container');
-
-ReactDOM.render(templateTwo, appRoot);
+renderCounterApp();
