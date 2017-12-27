@@ -1,6 +1,6 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
-
+const appRoot = document.getElementById('react-container');
 const app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -32,15 +32,19 @@ const onFormSubmit = (event) => {
     }
     renderReactElement();
 };
+const removeAll = () => {
+  app.options = [];
+  renderReactElement();
+};
 
 const renderReactElement = () => {
-    const appRoot = document.getElementById('react-container');
     const template = (
         <div>
             <h1>{app.title}</h1>
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
+            <button id="removeAll" onClick={removeAll}>Remove All</button>
             <ol>
                 <li>{app.itemOne}</li>
                 <li>{app.itemTwo}</li>

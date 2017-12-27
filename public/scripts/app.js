@@ -2,7 +2,7 @@
 
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
-
+var appRoot = document.getElementById('react-container');
 var app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -65,9 +65,12 @@ var onFormSubmit = function onFormSubmit(event) {
     }
     renderReactElement();
 };
+var removeAll = function removeAll() {
+    app.options = [];
+    renderReactElement();
+};
 
 var renderReactElement = function renderReactElement() {
-    var appRoot = document.getElementById('react-container');
     var template = React.createElement(
         'div',
         null,
@@ -86,6 +89,11 @@ var renderReactElement = function renderReactElement() {
             'h3',
             null,
             app.options.length
+        ),
+        React.createElement(
+            'button',
+            { id: 'removeAll', onClick: removeAll },
+            'Remove All'
         ),
         React.createElement(
             'ol',
