@@ -58,7 +58,7 @@ var getLocation = function getLocation(object) {
 };
 var onFormSubmit = function onFormSubmit(event) {
     event.preventDefault();
-    var option = event.target.elements.option.value;
+    var option = event.target.elements.option.value; //points to the element that the event started with, which is the form
     if (option) {
         app.options.push(option);
         event.target.elements.option.value = '';

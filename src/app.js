@@ -25,7 +25,7 @@ const user = {
 const getLocation = (object) => object.location? <p>Location: {object.location}</p> : <p>Location: Bubba</p>;
 const onFormSubmit = (event) => {
     event.preventDefault();
-    const option = event.target.elements.option.value;
+    const option = event.target.elements.option.value; //points to the element that the event started with, which is the form
     if(option){
         app.options.push(option);
         event.target.elements.option.value = '';
