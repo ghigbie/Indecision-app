@@ -92,24 +92,28 @@ var template = React.createElement(
     )
 );
 
+var count = 0;
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        'Name: ',
-        user.name ? user.name : 'AnonyMoose'
+        'Count: ',
+        count
     ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
+    React.createElement(
+        'button',
         null,
-        'Age: ',
-        user.age,
-        ' '
+        '+1'
     ),
-    getLocation(user)
+    React.createElement(
+        'button',
+        null,
+        '-1'
+    )
 );
+
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);

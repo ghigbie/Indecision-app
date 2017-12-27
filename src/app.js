@@ -37,14 +37,15 @@ const template = (
     </div>
 );
 
+let count = 0;
 const templateTwo = (
     <div>
-        <h1>Name: {user.name ? user.name : 'AnonyMoose'}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age} </p>}
-        {getLocation(user)}
+        <h1>Count: {count}</h1>
+        <button>+1</button>
+        <button>-1</button>
     </div>
-)
-;
+);
+
 const appRoot = document.getElementById('react-container');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
