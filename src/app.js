@@ -38,31 +38,4 @@ const template = (
     </div>
 );
 
-let count = 0;
-const increment = (incrementValue) => {
-    count++;
-    renderCounterApp();
-};
-const decrement = (decrementValue) => {
-    count > 0 ? count-- : count = 0;
-    renderCounterApp();
-};
-const reset = () => {
-    count = 0;
-    renderCounterApp();
-};
-
-const renderCounterApp = () => {
-    const templateTwo = (
-        <div>
-            <h1>Count: {count}</h1>
-            <button className="btn btn-default" id="increment" onClick={increment}>+1</button>
-            <button className="btn btn-default" id="decrement" onClick={decrement}>-1</button>
-            <button className="btn btn-default" id="reset" onClick={reset}>Reset</button>
-        </div>
-    );
-    const appRoot = document.getElementById('react-container');
-    ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+ReactDOM.render(template, appRoot);

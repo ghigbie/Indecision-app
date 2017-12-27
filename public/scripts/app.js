@@ -93,48 +93,4 @@ var template = React.createElement(
     )
 );
 
-var count = 0;
-var increment = function increment(incrementValue) {
-    count++;
-    renderCounterApp();
-};
-var decrement = function decrement(decrementValue) {
-    count > 0 ? count-- : count = 0;
-    renderCounterApp();
-};
-var reset = function reset() {
-    count = 0;
-    renderCounterApp();
-};
-
-var renderCounterApp = function renderCounterApp() {
-    var templateTwo = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            'Count: ',
-            count
-        ),
-        React.createElement(
-            'button',
-            { className: 'btn btn-default', id: 'increment', onClick: increment },
-            '+1'
-        ),
-        React.createElement(
-            'button',
-            { className: 'btn btn-default', id: 'decrement', onClick: decrement },
-            '-1'
-        ),
-        React.createElement(
-            'button',
-            { className: 'btn btn-default', id: 'reset', onClick: reset },
-            'Reset'
-        )
-    );
-    var appRoot = document.getElementById('react-container');
-    ReactDOM.render(templateTwo, appRoot);
-};
-
-renderCounterApp();
+ReactDOM.render(template, appRoot);
