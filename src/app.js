@@ -1,7 +1,7 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
-/*globa ReactDOM*/
 
+const appRoot = document.getElementById('react-container');
 const app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -24,6 +24,10 @@ const user = {
 };
 
 const getLocation = (object) => object.location? <p>Location: {object.location}</p> : <p>Location: Bubba</p>;
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted");
+};
 
 const template = (
     <div>
@@ -35,6 +39,10 @@ const template = (
             <li>{app.itemTwo}</li>
             <li>{app.itemThree}</li>
         </ol>
+        <form onSubmit={onFormSubmit}>
+            <input type="text" name="option"/>
+            <button>Add Option</button>
+        </form>
     </div>
 );
 

@@ -2,8 +2,8 @@
 
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
-/*globa ReactDOM*/
 
+var appRoot = document.getElementById('react-container');
 var app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -57,6 +57,10 @@ var getLocation = function getLocation(object) {
         'Location: Bubba'
     );
 };
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
+    console.log("Form submitted");
+};
 
 var template = React.createElement(
     'div',
@@ -89,6 +93,16 @@ var template = React.createElement(
             'li',
             null,
             app.itemThree
+        )
+    ),
+    React.createElement(
+        'form',
+        { onSubmit: onFormSubmit },
+        React.createElement('input', { type: 'text', name: 'option' }),
+        React.createElement(
+            'button',
+            null,
+            'Add Option'
         )
     )
 );
