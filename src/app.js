@@ -38,11 +38,13 @@ const template = (
 );
 
 let count = 0;
+const increment = (incrementValue) => count+=incrementValue;
+const decrement = (decrementValue) => count-=decrementValue;
 const templateTwo = (
     <div>
         <h1>Count: {count}</h1>
-        <button>+1</button>
-        <button>-1</button>
+        <button className="btn btn-default" id="increment" onClick={increment(1)}>+1</button>
+        <button className="btn btn-default" id="decrement" onClick={decrement(1)}>-1</button>
     </div>
 );
 

@@ -93,6 +93,12 @@ var template = React.createElement(
 );
 
 var count = 0;
+var increment = function increment(incrementValue) {
+    return count += incrementValue;
+};
+var decrement = function decrement(decrementValue) {
+    return count -= decrementValue;
+};
 var templateTwo = React.createElement(
     'div',
     null,
@@ -104,12 +110,12 @@ var templateTwo = React.createElement(
     ),
     React.createElement(
         'button',
-        null,
+        { className: 'btn btn-default', id: 'increment', onClick: increment(1) },
         '+1'
     ),
     React.createElement(
         'button',
-        null,
+        { className: 'btn btn-default', id: 'decrement', onClick: decrement(1) },
         '-1'
     )
 );
