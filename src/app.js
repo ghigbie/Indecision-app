@@ -1,7 +1,6 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
 
-const appRoot = document.getElementById('react-container');
 const app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -24,26 +23,37 @@ const user = {
 };
 
 const getLocation = (object) => object.location? <p>Location: {object.location}</p> : <p>Location: Bubba</p>;
-const onFormSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
+const onFormSubmit = (event) => {
+    event.preventDefault();
+    const option = event.target.elements.option.value;
+    if(option){
+        app.options.push(option);
+        event.target.elements.option.value = '';
+    }
+    renderReactElement();
 };
 
-const template = (
-    <div>
-        <h1>{app.title}</h1>
-        {app.subtitle && <h2>{app.subtitle}</h2>}
-        {app.options.length > 0 ? options : noOptions}
-        <ol>
-            <li>{app.itemOne}</li>
-            <li>{app.itemTwo}</li>
-            <li>{app.itemThree}</li>
-        </ol>
-        <form onSubmit={onFormSubmit}>
-            <input type="text" name="option"/>
-            <button>Add Option</button>
-        </form>
-    </div>
-);
+const renderReactElement = () => {
+    const appRoot = document.getElementById('react-container');
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <h2>{app.subtitle}</h2>}
+            {app.options.length > 0 ? options : noOptions}
+            <h3>{app.options.length}</h3>
+            <ol>
+                <li>{app.itemOne}</li>
+                <li>{app.itemTwo}</li>
+                <li>{app.itemThree}</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add Option</button>
+            </form>
+        </div>
+    );
+    
+    ReactDOM.render(template, appRoot);
+};
 
-ReactDOM.render(template, appRoot);
+renderReactElement();

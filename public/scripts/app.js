@@ -3,7 +3,6 @@
 // const React    = require('react');
 // const ReactDOM = require('react-dom');
 
-var appRoot = document.getElementById('react-container');
 var app = {
     title: 'Indecison App',
     subtitle: 'Put your life in the hands of a computer!',
@@ -57,54 +56,69 @@ var getLocation = function getLocation(object) {
         'Location: Bubba'
     );
 };
-var onFormSubmit = function onFormSubmit(e) {
-    e.preventDefault();
-    console.log("Form submitted");
+var onFormSubmit = function onFormSubmit(event) {
+    event.preventDefault();
+    var option = event.target.elements.option.value;
+    if (option) {
+        app.options.push(option);
+        event.target.elements.option.value = '';
+    }
+    renderReactElement();
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        app.title
-    ),
-    app.subtitle && React.createElement(
-        'h2',
-        null,
-        app.subtitle
-    ),
-    app.options.length > 0 ? options : noOptions,
-    React.createElement(
-        'ol',
+var renderReactElement = function renderReactElement() {
+    var appRoot = document.getElementById('react-container');
+    var template = React.createElement(
+        'div',
         null,
         React.createElement(
-            'li',
+            'h1',
             null,
-            app.itemOne
+            app.title
+        ),
+        app.subtitle && React.createElement(
+            'h2',
+            null,
+            app.subtitle
+        ),
+        app.options.length > 0 ? options : noOptions,
+        React.createElement(
+            'h3',
+            null,
+            app.options.length
         ),
         React.createElement(
-            'li',
+            'ol',
             null,
-            app.itemTwo
+            React.createElement(
+                'li',
+                null,
+                app.itemOne
+            ),
+            React.createElement(
+                'li',
+                null,
+                app.itemTwo
+            ),
+            React.createElement(
+                'li',
+                null,
+                app.itemThree
+            )
         ),
         React.createElement(
-            'li',
-            null,
-            app.itemThree
+            'form',
+            { onSubmit: onFormSubmit },
+            React.createElement('input', { type: 'text', name: 'option' }),
+            React.createElement(
+                'button',
+                null,
+                'Add Option'
+            )
         )
-    ),
-    React.createElement(
-        'form',
-        { onSubmit: onFormSubmit },
-        React.createElement('input', { type: 'text', name: 'option' }),
-        React.createElement(
-            'button',
-            null,
-            'Add Option'
-        )
-    )
-);
+    );
 
-ReactDOM.render(template, appRoot);
+    ReactDOM.render(template, appRoot);
+};
+
+renderReactElement();
