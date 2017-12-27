@@ -32,7 +32,7 @@ const onFormSubmit = (event) => {
     }
     renderReactElement();
 };
-const removeAll = () => {
+const onRemoveAll = () => {
   app.options = [];
   renderReactElement();
 };
@@ -44,7 +44,7 @@ const renderReactElement = () => {
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
-            <button id="removeAll" onClick={removeAll}>Remove All</button>
+            <button id="removeAll" onClick={onRemoveAll}>Remove All</button>
             <ol>
                 <li>{app.itemOne}</li>
                 <li>{app.itemTwo}</li>
