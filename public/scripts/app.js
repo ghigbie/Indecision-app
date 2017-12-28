@@ -83,6 +83,14 @@ var addOptionsList = function addOptionsList() {
     renderReactElement();
 };
 
+var onMakeDecision = function onMakeDecision() {
+    var random = Math.floor(Math.random() * app.options.length);
+    var choice = app.options[random];
+    console.log(choice);
+    //document.getElementsByTagName('li').style.background = '#fff';
+    //document.querySelectorAll('li')[random].style.background = 'blue';
+};
+
 var renderReactElement = function renderReactElement() {
     var template = React.createElement(
         'div',
@@ -102,6 +110,11 @@ var renderReactElement = function renderReactElement() {
             'h3',
             null,
             app.options.length
+        ),
+        React.createElement(
+            'button',
+            { id: 'randomChoice', className: 'btn btn-default', onClick: onMakeDecision },
+            'What should I do?'
         ),
         React.createElement(
             'button',

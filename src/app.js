@@ -45,6 +45,14 @@ const addOptionsList = () => {
     renderReactElement();
 };
 
+const onMakeDecision = () => {
+    let random = Math.floor(Math.random() * app.options.length);
+    let choice = app.options[random];
+    console.log(choice);
+    //document.getElementsByTagName('li').style.background = '#fff';
+    //document.querySelectorAll('li')[random].style.background = 'blue';
+};
+
 const renderReactElement = () => {
     const template = (
         <div>
@@ -52,6 +60,7 @@ const renderReactElement = () => {
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
+            <button id="randomChoice" className="btn btn-default" onClick={onMakeDecision}>What should I do?</button>
             <button id="removeAll" className="btn btn-default" onClick={onRemoveAll}>Remove All</button>
             <ol>
                 {
