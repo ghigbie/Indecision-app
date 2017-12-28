@@ -9,7 +9,7 @@ var app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
+    options: []
 };
 
 var options = React.createElement(
@@ -87,6 +87,7 @@ var onMakeDecision = function onMakeDecision() {
     var random = Math.floor(Math.random() * app.options.length);
     var choice = app.options[random];
     console.log(choice);
+    alert(choice);
     //document.getElementsByTagName('li').style.background = '#fff';
     //document.querySelectorAll('li')[random].style.background = 'blue';
 };
@@ -113,12 +114,18 @@ var renderReactElement = function renderReactElement() {
         ),
         React.createElement(
             'button',
-            { id: 'randomChoice', className: 'btn btn-default', onClick: onMakeDecision },
+            { id: 'makeDecision',
+                disabled: app.options.length === 0,
+                className: 'btn btn-default',
+                onClick: onMakeDecision },
             'What should I do?'
         ),
         React.createElement(
             'button',
-            { id: 'removeAll', className: 'btn btn-default', onClick: onRemoveAll },
+            { id: 'removeAll',
+                disabled: app.options.length === 0,
+                className: 'btn btn-default',
+                onClick: onRemoveAll },
             'Remove All'
         ),
         React.createElement(
@@ -134,7 +141,8 @@ var renderReactElement = function renderReactElement() {
         ),
         React.createElement(
             'form',
-            { className: 'form', onSubmit: onFormSubmit },
+            { className: 'form',
+                onSubmit: onFormSubmit },
             React.createElement('input', { type: 'text', name: 'option' }),
             React.createElement(
                 'button',

@@ -7,7 +7,7 @@ const app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
+    options: []
 };
 
 const options = <div><h3>Here are your options:</h3>
@@ -46,9 +46,10 @@ const addOptionsList = () => {
 };
 
 const onMakeDecision = () => {
-    let random = Math.floor(Math.random() * app.options.length);
-    let choice = app.options[random];
+    const random = Math.floor(Math.random() * app.options.length);
+    const choice = app.options[random];
     console.log(choice);
+    alert(choice);
     //document.getElementsByTagName('li').style.background = '#fff';
     //document.querySelectorAll('li')[random].style.background = 'blue';
 };
@@ -60,8 +61,15 @@ const renderReactElement = () => {
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
-            <button id="randomChoice" className="btn btn-default" onClick={onMakeDecision}>What should I do?</button>
-            <button id="removeAll" className="btn btn-default" onClick={onRemoveAll}>Remove All</button>
+            
+            <button id="makeDecision" 
+                    disabled={app.options.length === 0}
+                    className="btn btn-default" 
+                    onClick={onMakeDecision}>What should I do?</button>
+            <button id="removeAll" 
+                    disabled={app.options.length === 0}
+                    className="btn btn-default" 
+                    onClick={onRemoveAll}>Remove All</button>
             <ol>
                 {
                    app.options.map((option) => {
@@ -69,9 +77,11 @@ const renderReactElement = () => {
                    })
                 }
             </ol>
-            <form className="form" onSubmit={onFormSubmit}>
+            
+            <form className="form" 
+                  onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
-                <button className="btn btn-default" >Add Option</button>
+                <button className="btn btn-default">Add Option</button>
             </form>
         </div>
     );
