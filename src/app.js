@@ -7,7 +7,7 @@ const app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: []
+    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
 };
 
 const options = <div><h3>Here are your options:</h3>
@@ -73,7 +73,7 @@ const renderReactElement = () => {
             <ol>
                 {
                    app.options.map((option) => {
-                       return <li key={option}>{option}</li>;
+                       return <li key={option}>{option}  <i class="fa fa-times-circle-o" aria-hidden="true"></i></li>;
                    })
                 }
             </ol>

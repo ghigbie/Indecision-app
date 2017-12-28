@@ -9,7 +9,7 @@ var app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: []
+    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
 };
 
 var options = React.createElement(
@@ -135,7 +135,9 @@ var renderReactElement = function renderReactElement() {
                 return React.createElement(
                     'li',
                     { key: option },
-                    option
+                    option,
+                    '  ',
+                    React.createElement('i', { 'class': 'fa fa-times-circle-o', 'aria-hidden': 'true' })
                 );
             })
         ),
