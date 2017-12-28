@@ -7,7 +7,7 @@ const app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: ['option one', 'option two']
+    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
 };
 
 const options = <div><h3>Here are your options:</h3>
@@ -32,17 +32,19 @@ const onFormSubmit = (event) => {
     }
     renderReactElement();
 };
-const renderList = () => {
-    app.options.map((option) => {
-        <li>option</li>;
-    });
-};
+
 const onRemoveAll = () => {
   app.options = [];
   renderReactElement();
 };
 
-const stuff =  [99, 98, 87, 'Moo', "chubby"];
+const addOptionsList = () => {
+    app.options.map((option) => {
+        return <p key={option}> {option}</p>;
+    });
+    renderReactElement();
+};
+
 const renderReactElement = () => {
     const template = (
         <div>
@@ -51,15 +53,12 @@ const renderReactElement = () => {
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
             <button id="removeAll" className="btn btn-default" onClick={onRemoveAll}>Remove All</button>
-            {
-
-            }
-            
             <ol>
-                {renderList}
-                <li>{app.itemOne}</li>
-                <li>{app.itemTwo}</li>
-                <li>{app.itemThree}</li>
+                {
+                   app.options.map((option) => {
+                       return <li key={option}>{option}</li>;
+                   })
+                }
             </ol>
             <form className="form" onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>

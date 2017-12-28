@@ -9,7 +9,7 @@ var app = {
     itemOne: 'Item One',
     itemTwo: 'Item Two',
     itemThree: 'Item Three',
-    options: ['option one', 'option two']
+    options: ['bake bread', 'hunt bears', 'eat snowcone', 'fly atlatic']
 };
 
 var options = React.createElement(
@@ -65,21 +65,24 @@ var onFormSubmit = function onFormSubmit(event) {
     }
     renderReactElement();
 };
-var renderList = function renderList() {
-    app.options.map(function (option) {
-        React.createElement(
-            'li',
-            null,
-            'option'
-        );
-    });
-};
+
 var onRemoveAll = function onRemoveAll() {
     app.options = [];
     renderReactElement();
 };
 
-var stuff = [99, 98, 87, 'Moo', "chubby"];
+var addOptionsList = function addOptionsList() {
+    app.options.map(function (option) {
+        return React.createElement(
+            'p',
+            { key: option },
+            ' ',
+            option
+        );
+    });
+    renderReactElement();
+};
+
 var renderReactElement = function renderReactElement() {
     var template = React.createElement(
         'div',
@@ -108,22 +111,13 @@ var renderReactElement = function renderReactElement() {
         React.createElement(
             'ol',
             null,
-            renderList,
-            React.createElement(
-                'li',
-                null,
-                app.itemOne
-            ),
-            React.createElement(
-                'li',
-                null,
-                app.itemTwo
-            ),
-            React.createElement(
-                'li',
-                null,
-                app.itemThree
-            )
+            app.options.map(function (option) {
+                return React.createElement(
+                    'li',
+                    { key: option },
+                    option
+                );
+            })
         ),
         React.createElement(
             'form',
