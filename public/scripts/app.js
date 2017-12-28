@@ -95,7 +95,7 @@ var onMakeDecision = function onMakeDecision() {
 var renderReactElement = function renderReactElement() {
     var template = React.createElement(
         'div',
-        null,
+        { className: 'col-md-4' },
         React.createElement(
             'h1',
             null,

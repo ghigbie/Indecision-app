@@ -56,7 +56,7 @@ const onMakeDecision = () => {
 
 const renderReactElement = () => {
     const template = (
-        <div>
+        <div className="col-md-4">
             <h1>{app.title}</h1>
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
