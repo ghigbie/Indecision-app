@@ -61,15 +61,25 @@ var onFormSubmit = function onFormSubmit(event) {
     var option = event.target.elements.option.value; //points to the element that the event started with, which is the form
     if (option) {
         app.options.push(option);
-        event.target.elements.option.value = '';
+        event.target.elements.option.value = ''; //removes the item from the input field
     }
     renderReactElement();
+};
+var renderList = function renderList() {
+    app.options.map(function (option) {
+        React.createElement(
+            'li',
+            null,
+            'option'
+        );
+    });
 };
 var onRemoveAll = function onRemoveAll() {
     app.options = [];
     renderReactElement();
 };
 
+var stuff = [99, 98, 87, 'Moo', "chubby"];
 var renderReactElement = function renderReactElement() {
     var template = React.createElement(
         'div',
@@ -92,12 +102,13 @@ var renderReactElement = function renderReactElement() {
         ),
         React.createElement(
             'button',
-            { id: 'removeAll', onClick: onRemoveAll },
+            { id: 'removeAll', className: 'btn btn-default', onClick: onRemoveAll },
             'Remove All'
         ),
         React.createElement(
             'ol',
             null,
+            renderList,
             React.createElement(
                 'li',
                 null,
@@ -116,11 +127,11 @@ var renderReactElement = function renderReactElement() {
         ),
         React.createElement(
             'form',
-            { onSubmit: onFormSubmit },
+            { className: 'form', onSubmit: onFormSubmit },
             React.createElement('input', { type: 'text', name: 'option' }),
             React.createElement(
                 'button',
-                null,
+                { className: 'btn btn-default' },
                 'Add Option'
             )
         )

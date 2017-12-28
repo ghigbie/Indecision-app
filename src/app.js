@@ -28,15 +28,21 @@ const onFormSubmit = (event) => {
     const option = event.target.elements.option.value; //points to the element that the event started with, which is the form
     if(option){
         app.options.push(option);
-        event.target.elements.option.value = '';
+        event.target.elements.option.value = ''; //removes the item from the input field
     }
     renderReactElement();
+};
+const renderList = () => {
+    app.options.map((option) => {
+        <li>option</li>;
+    });
 };
 const onRemoveAll = () => {
   app.options = [];
   renderReactElement();
 };
 
+const stuff =  [99, 98, 87, 'Moo', "chubby"];
 const renderReactElement = () => {
     const template = (
         <div>
@@ -44,15 +50,20 @@ const renderReactElement = () => {
             {app.subtitle && <h2>{app.subtitle}</h2>}
             {app.options.length > 0 ? options : noOptions}
             <h3>{app.options.length}</h3>
-            <button id="removeAll" onClick={onRemoveAll}>Remove All</button>
+            <button id="removeAll" className="btn btn-default" onClick={onRemoveAll}>Remove All</button>
+            {
+
+            }
+            
             <ol>
+                {renderList}
                 <li>{app.itemOne}</li>
                 <li>{app.itemTwo}</li>
                 <li>{app.itemThree}</li>
             </ol>
-            <form onSubmit={onFormSubmit}>
+            <form className="form" onSubmit={onFormSubmit}>
                 <input type="text" name="option"/>
-                <button>Add Option</button>
+                <button className="btn btn-default" >Add Option</button>
             </form>
         </div>
     );
