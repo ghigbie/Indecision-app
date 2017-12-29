@@ -8,10 +8,22 @@ class Header extends React.Component {   //extending this class give all of the 
     }    
 }
 
+class Action extends React.Component {
+    render(){
+        return(
+            <div>
+                <button>What should I do?</button>
+            </div>
+        );
+    }
+}
+
+//React Components added to jsx need to begin with a capital letter
 const jsx = (
     <div>
         <h1>Title</h1>
-        <Header/>
+        <Header/> 
+        <Action/>
     </div>
 );
 
