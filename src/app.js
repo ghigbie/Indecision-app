@@ -17,7 +17,8 @@ class Action extends React.Component {
     render(){
         return(
             <div>
-                <button>What should I do?</button>
+                <button id="what"
+                        class="btn btn-default">What should I do?</button>
             </div>
         );
     }
@@ -45,7 +46,9 @@ class AddOption extends React.Component{
                 <form>
                     <input type="text"
                            placeholder="Add option here"/>
-                    <button type="submit">Add option</button>
+                    <button type="submit"
+                            id="addOption"
+                            class="btn btn-default">Add option</button>
                 </form>
             </div>
         );
@@ -58,6 +61,8 @@ const jsx = (
         <h1>Title</h1>
         <Header/> 
         <Action/>
+        <Options/>
+        <AddOption/>
     </div>
 );
 

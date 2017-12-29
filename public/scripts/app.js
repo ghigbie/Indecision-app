@@ -62,7 +62,8 @@ var Action = function (_React$Component2) {
                 null,
                 React.createElement(
                     "button",
-                    null,
+                    { id: "what",
+                        "class": "btn btn-default" },
                     "What should I do?"
                 )
             );
@@ -140,7 +141,9 @@ var AddOption = function (_React$Component4) {
                         placeholder: "Add option here" }),
                     React.createElement(
                         "button",
-                        { type: "submit" },
+                        { type: "submit",
+                            id: "addOption",
+                            "class": "btn btn-default" },
                         "Add option"
                     )
                 )
@@ -163,7 +166,9 @@ var jsx = React.createElement(
         "Title"
     ),
     React.createElement(Header, null),
-    React.createElement(Action, null)
+    React.createElement(Action, null),
+    React.createElement(Options, null),
+    React.createElement(AddOption, null)
 );
 
 var appRoot = document.getElementById('react-container');
