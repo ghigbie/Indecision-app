@@ -44,7 +44,8 @@ var jsx = React.createElement(
         'h1',
         null,
         'Title'
-    )
+    ),
+    React.createElement(Header, null)
 );
 
 var appRoot = document.getElementById('react-container');
