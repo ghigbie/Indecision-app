@@ -42,13 +42,25 @@ class Options extends React.Component{
             <div>
                 <h3>Here are your options:</h3>
                 <ol>
-                    <li>Option One</li>
-                    <li>Option Two</li>
-                    <li>Option Three</li>
+                    <Option />
                 </ol>
             </div>
         );
     }   
+}
+
+const optionString = 'An option is here';
+
+class Option extends React.Component{
+    render(){
+        return(
+            <div>
+                <li>{optionString}</li>
+                <li>{optionString}</li>
+                <li>{optionString}</li>
+            </div>
+        );
+    }
 }
 
 class AddOption extends React.Component{
