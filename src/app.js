@@ -23,6 +23,35 @@ class Action extends React.Component {
     }
 }
 
+class Options extends React.Component{
+    render(){
+        return(
+            <div>
+                <h3>Here are your options</h3>
+                <ol>
+                    <li>Option One</li>
+                    <li>Option Two</li>
+                    <li>Option Three</li>
+                </ol>
+            </div>
+        );
+    }   
+}
+
+class AddOption extends React.Component{
+    render(){
+        return(
+            <div>
+                <form>
+                    <input type="text"
+                           placeholder="Add option here"/>
+                    <button type="submit">Add option</button>
+                </form>
+            </div>
+        );
+    }
+}
+
 //React Components added to jsx need to begin with a capital letter
 const jsx = (
     <div>
