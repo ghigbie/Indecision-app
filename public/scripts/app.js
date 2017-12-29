@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,17 +18,17 @@ var Header = function (_React$Component) {
     }
 
     _createClass(Header, [{
-        key: "render",
+        key: 'render',
         //extending this class give all of the features of React
         value: function render() {
             //The component class requires render to be implimented andmust return JSX
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "h1",
+                    'h1',
                     null,
-                    "This is from header"
+                    'This is from header'
                 )
             );
         }
@@ -36,3 +36,17 @@ var Header = function (_React$Component) {
 
     return Header;
 }(React.Component);
+
+var jsx = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Title'
+    )
+);
+
+var appRoot = document.getElementById('react-container');
+
+ReactDOM.render(jsx, appRoot);

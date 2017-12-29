@@ -7,3 +7,13 @@ class Header extends React.Component {   //extending this class give all of the 
         );
     }    
 }
+
+const jsx = (
+    <div>
+        <h1>Title</h1>
+    </div>
+);
+
+const appRoot = document.getElementById('react-container');
+
+ReactDOM.render(jsx, appRoot);
