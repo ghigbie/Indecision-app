@@ -28,7 +28,7 @@ class Options extends React.Component{
     render(){
         return(
             <div>
-                <h3>Here are your options</h3>
+                <h3>Here are your options:</h3>
                 <ol>
                     <li>Option One</li>
                     <li>Option Two</li>

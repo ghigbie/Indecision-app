@@ -91,7 +91,7 @@ var Options = function (_React$Component3) {
                 React.createElement(
                     "h3",
                     null,
-                    "Here are your options"
+                    "Here are your options:"
                 ),
                 React.createElement(
                     "ol",
