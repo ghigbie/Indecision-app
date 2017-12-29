@@ -1,8 +1,13 @@
+
+const appTitle = 'Indecison App';
+const appSubtitle = "Put your life in the hands of a computer";
+
 class Header extends React.Component {   //extending this class give all of the features of React
     render(){  //The component class requires render to be implimented andmust return JSX
         return (
             <div>
-                <h1>This is from header</h1>
+                <h1>{appTitle}</h1>
+                <h2>{appSubtitle}</h2>
             </div>
         );
     }    
