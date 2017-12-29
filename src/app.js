@@ -1,3 +1,11 @@
+class IndecisionApp extends React.Component{
+    render(){
+        return(
+            <div>
+            </div>
+        );
+    }
+}
 
 const appTitle = 'Indecison App';
 const appSubtitle = "Put your life in the hands of a computer";
@@ -58,7 +66,6 @@ class AddOption extends React.Component{
 //React Components added to jsx need to begin with a capital letter
 const jsx = (
     <div>
-        <h1>Title</h1>
         <Header/> 
         <Action/>
         <Options/>
