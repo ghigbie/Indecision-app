@@ -2,6 +2,10 @@ class IndecisionApp extends React.Component{
     render(){
         return(
             <div>
+                <Header />
+                <Action />
+                <Options />
+                <AddOption />
             </div>
         );
     }
@@ -63,16 +67,6 @@ class AddOption extends React.Component{
     }
 }
 
-//React Components added to jsx need to begin with a capital letter
-const jsx = (
-    <div>
-        <Header/> 
-        <Action/>
-        <Options/>
-        <AddOption/>
-    </div>
-);
-
 const appRoot = document.getElementById('react-container');
 
-ReactDOM.render(jsx, appRoot);
+ReactDOM.render(<IndecisionApp />, appRoot);

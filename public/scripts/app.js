@@ -20,7 +20,14 @@ var IndecisionApp = function (_React$Component) {
     _createClass(IndecisionApp, [{
         key: "render",
         value: function render() {
-            return React.createElement("div", null);
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(Header, null),
+                React.createElement(Action, null),
+                React.createElement(Options, null),
+                React.createElement(AddOption, null)
+            );
         }
     }]);
 
@@ -173,18 +180,6 @@ var AddOption = function (_React$Component5) {
     return AddOption;
 }(React.Component);
 
-//React Components added to jsx need to begin with a capital letter
-
-
-var jsx = React.createElement(
-    "div",
-    null,
-    React.createElement(Header, null),
-    React.createElement(Action, null),
-    React.createElement(Options, null),
-    React.createElement(AddOption, null)
-);
-
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(jsx, appRoot);
+ReactDOM.render(React.createElement(IndecisionApp, null), appRoot);
