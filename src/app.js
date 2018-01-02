@@ -1,8 +1,10 @@
 class IndecisionApp extends React.Component{
     render(){
+        const appTitle = 'Indecison App';
+        const appSubtitle = 'Put your life in the hands of a computer';
         return(
             <div>
-                <Header title="Indecison App"/>
+                <Header title={appTitle} subtitle={appSubtitle}/>
                 <Action />
                 <Options />
                 <AddOption />
@@ -11,14 +13,13 @@ class IndecisionApp extends React.Component{
     }
 }
 
-const appSubtitle = "Put your life in the hands of a computer";
 
 class Header extends React.Component {   //extending this class give all of the features of React
     render(){  //The component class requires render to be implimented andmust return JSX
         return (
             <div>
                 <h1>{this.props.title}</h1>
-                <h2>{appSubtitle}</h2>
+                <h2>{this.props.subtitle}</h2>
             </div>
         );
     }    
