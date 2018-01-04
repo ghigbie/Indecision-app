@@ -73,6 +73,10 @@ class Option extends React.Component{
 }
 
 class AddOption extends React.Component{
+    handleAddOption(){
+        alert("handleAppOption");
+    }
+    
     render(){
         return(
             <div>
@@ -81,6 +85,7 @@ class AddOption extends React.Component{
                            placeholder="Add option here"/>
                     <button type="submit"
                             id="addOption"
+                            onClick={this.handleAddOption}
                             class="btn btn-default">Add option</button>
                 </form>
             </div>

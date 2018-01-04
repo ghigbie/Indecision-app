@@ -187,6 +187,11 @@ var AddOption = function (_React$Component6) {
     }
 
     _createClass(AddOption, [{
+        key: 'handleAddOption',
+        value: function handleAddOption() {
+            alert("handleAppOption");
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -201,6 +206,7 @@ var AddOption = function (_React$Component6) {
                         'button',
                         { type: 'submit',
                             id: 'addOption',
+                            onClick: this.handleAddOption,
                             'class': 'btn btn-default' },
                         'Add option'
                     )
