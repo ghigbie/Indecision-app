@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -18,14 +18,17 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
-        key: "render",
+        key: 'render',
         value: function render() {
+            var appTitle = 'Indecison App';
+            var appSubtitle = 'Put your life in the hands of a computer';
+            var options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
             return React.createElement(
-                "div",
+                'div',
                 null,
-                React.createElement(Header, null),
+                React.createElement(Header, { title: appTitle, subtitle: appSubtitle }),
                 React.createElement(Action, null),
-                React.createElement(Options, null),
+                React.createElement(Options, { options: options }),
                 React.createElement(AddOption, null)
             );
         }
@@ -33,9 +36,6 @@ var IndecisionApp = function (_React$Component) {
 
     return IndecisionApp;
 }(React.Component);
-
-var appTitle = 'Indecison App';
-var appSubtitle = "Put your life in the hands of a computer";
 
 var Header = function (_React$Component2) {
     _inherits(Header, _React$Component2);
@@ -47,22 +47,22 @@ var Header = function (_React$Component2) {
     }
 
     _createClass(Header, [{
-        key: "render",
+        key: 'render',
         //extending this class give all of the features of React
         value: function render() {
             //The component class requires render to be implimented andmust return JSX
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "h1",
+                    'h1',
                     null,
-                    appTitle
+                    this.props.title
                 ),
                 React.createElement(
-                    "h2",
+                    'h2',
                     null,
-                    appSubtitle
+                    this.props.subtitle
                 )
             );
         }
@@ -81,16 +81,16 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "button",
-                    { id: "what",
-                        "class": "btn btn-default" },
-                    "What should I do?"
+                    'button',
+                    { id: 'what',
+                        'class': 'btn btn-default' },
+                    'What should I do?'
                 )
             );
         }
@@ -109,20 +109,27 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "h3",
+                    'h3',
                     null,
-                    "Here are your options:"
+                    'Here are your options: ',
+                    this.props.options.length
                 ),
                 React.createElement(
-                    "ol",
+                    'ol',
                     null,
-                    React.createElement(Option, null)
+                    this.props.options.map(function (option) {
+                        return React.createElement(
+                            'li',
+                            { key: option },
+                            option
+                        );
+                    })
                 )
             );
         }
@@ -143,26 +150,12 @@ var Option = function (_React$Component5) {
     }
 
     _createClass(Option, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
-                React.createElement(
-                    "li",
-                    null,
-                    optionString
-                ),
-                React.createElement(
-                    "li",
-                    null,
-                    optionString
-                ),
-                React.createElement(
-                    "li",
-                    null,
-                    optionString
-                )
+                'Single option'
             );
         }
     }]);
@@ -180,22 +173,22 @@ var AddOption = function (_React$Component6) {
     }
 
     _createClass(AddOption, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
+                'div',
                 null,
                 React.createElement(
-                    "form",
+                    'form',
                     null,
-                    React.createElement("input", { type: "text",
-                        placeholder: "Add option here" }),
+                    React.createElement('input', { type: 'text',
+                        placeholder: 'Add option here' }),
                     React.createElement(
-                        "button",
-                        { type: "submit",
-                            id: "addOption",
-                            "class": "btn btn-default" },
-                        "Add option"
+                        'button',
+                        { type: 'submit',
+                            id: 'addOption',
+                            'class': 'btn btn-default' },
+                        'Add option'
                     )
                 )
             );

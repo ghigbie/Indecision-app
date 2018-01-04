@@ -2,11 +2,12 @@ class IndecisionApp extends React.Component{
     render(){
         const appTitle = 'Indecison App';
         const appSubtitle = 'Put your life in the hands of a computer';
+        const options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
         return(
             <div>
                 <Header title={appTitle} subtitle={appSubtitle}/>
                 <Action />
-                <Options />
+                <Options options={options}/>
                 <AddOption />
             </div>
         );
@@ -40,9 +41,11 @@ class Options extends React.Component{
     render(){
         return(
             <div>
-                <h3>Here are your options:</h3>
+                <h3>Here are your options: {this.props.options.length}</h3>
                 <ol>
-                    <Option />
+                    {
+                        this.props.options.map((option) => <li key={option}>{option}</li>)
+                    }
                 </ol>
             </div>
         );
@@ -55,9 +58,7 @@ class Option extends React.Component{
     render(){
         return(
             <div>
-                <li>{optionString}</li>
-                <li>{optionString}</li>
-                <li>{optionString}</li>
+            Single option
             </div>
         );
     }
