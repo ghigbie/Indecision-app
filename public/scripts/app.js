@@ -115,11 +115,6 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
-        key: 'handleRemoveAll',
-        value: function handleRemoveAll() {
-            alert('handleRemoveAllCalled');
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -188,8 +183,13 @@ var AddOption = function (_React$Component6) {
 
     _createClass(AddOption, [{
         key: 'handleAddOption',
-        value: function handleAddOption() {
-            alert("handleAppOption");
+        value: function handleAddOption(e) {
+            e.preventDefault();
+            var option = e.target.elements.option.value;
+
+            if (option) {
+                alert(option);
+            }
         }
     }, {
         key: 'render',
@@ -199,14 +199,15 @@ var AddOption = function (_React$Component6) {
                 null,
                 React.createElement(
                     'form',
-                    null,
+                    { onSubmit: this.handleAddOption },
                     React.createElement('input', { type: 'text',
+                        id: 'option',
+                        name: 'option',
                         placeholder: 'Add option here' }),
                     React.createElement(
                         'button',
                         { type: 'submit',
                             id: 'addOption',
-                            onClick: this.handleAddOption,
                             'class': 'btn btn-default' },
                         'Add option'
                     )

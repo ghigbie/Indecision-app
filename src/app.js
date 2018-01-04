@@ -43,10 +43,6 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component{
-    handleRemoveAll(){
-        alert('handleRemoveAllCalled');
-    }
-    
     render(){
         return(
             <div>
@@ -73,19 +69,25 @@ class Option extends React.Component{
 }
 
 class AddOption extends React.Component{
-    handleAddOption(){
-        alert("handleAppOption");
+    handleAddOption(e){
+       e.preventDefault();
+       const option = e.target.elements.option.value;
+       
+       if(option){
+           alert(option);
+       }
     }
     
     render(){
         return(
             <div>
-                <form>
+                <form onSubmit={this.handleAddOption}>
                     <input type="text"
+                           id="option"
+                           name="option"
                            placeholder="Add option here"/>
                     <button type="submit"
                             id="addOption"
-                            onClick={this.handleAddOption}
                             class="btn btn-default">Add option</button>
                 </form>
             </div>
