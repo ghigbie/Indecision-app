@@ -81,6 +81,11 @@ var Action = function (_React$Component3) {
     }
 
     _createClass(Action, [{
+        key: 'handlePick',
+        value: function handlePick() {
+            alert('Booya~!');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -89,6 +94,7 @@ var Action = function (_React$Component3) {
                 React.createElement(
                     'button',
                     { id: 'what',
+                        onClick: this.handlePick,
                         'class': 'btn btn-default' },
                     'What should I do?'
                 )
@@ -109,11 +115,23 @@ var Options = function (_React$Component4) {
     }
 
     _createClass(Options, [{
+        key: 'handleRemoveAll',
+        value: function handleRemoveAll() {
+            alert('handleRemoveAllCalled');
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
                 'div',
                 null,
+                React.createElement(
+                    'button',
+                    { id: 'removeAll',
+                        onClick: this.handleRemoveAll,
+                        'class': 'btn btn-danger' },
+                    'Remove All'
+                ),
                 React.createElement(
                     'h3',
                     null,

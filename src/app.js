@@ -27,10 +27,15 @@ class Header extends React.Component {   //extending this class give all of the 
 }
 
 class Action extends React.Component {
+    handlePick(){
+        alert('Booya~!');
+    }
+    
     render(){
         return(
             <div>
                 <button id="what"
+                        onClick={this.handlePick}
                         class="btn btn-default">What should I do?</button>
             </div>
         );
@@ -38,9 +43,16 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component{
+    handleRemoveAll(){
+        alert('handleRemoveAllCalled');
+    }
+    
     render(){
         return(
             <div>
+                <button id="removeAll"
+                        onClick={this.handleRemoveAll}
+                        class="btn btn-danger">Remove All</button>
                 <h3>Here are your options: {this.props.options.length}</h3>
                 <ol>
                     { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
