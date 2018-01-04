@@ -71,7 +71,7 @@ class Option extends React.Component{
 class AddOption extends React.Component{
     handleAddOption(e){
        e.preventDefault();
-       const option = e.target.elements.option.value;
+       const option = e.target.elements.option.value.trim();
        
        if(option){
            alert(option);
