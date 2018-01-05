@@ -43,6 +43,18 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this); //this keeps the compnent form being rebound everytime it is called
+    }
+    
+    handleRemoveAll(){
+        console.log(this.props.options);
+        this.props.options = [];
+        console.log(this.props.options);
+        ReactDOM.render(<IndecisionApp />, appRoot);
+    }
+    
     render(){
         return(
             <div>
