@@ -16,6 +16,7 @@ var IndecisionApp = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
+        _this.handleDeleteOptions = _this.handleDeleteOptions.bind(_this);
         _this.state = {
             options: ['Walk dog', 'Wash dishes', 'Hunt rabbits']
         };
@@ -23,17 +24,30 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
+        key: 'handleDeleteOptions',
+        value: function handleDeleteOptions() {
+            this.setState(function () {
+                return {
+                    options: []
+                };
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var appTitle = 'Indecison App';
             var appSubtitle = 'Put your life in the hands of a computer';
+            var hasOptions = this.state.options.length > 0; //results in boolean to check if array is empty
 
             return React.createElement(
                 'div',
                 null,
                 React.createElement(Header, { title: appTitle, subtitle: appSubtitle }),
-                React.createElement(Action, { hasOptions: this.state.options.length > 0 }),
-                React.createElement(Options, { options: this.state.options }),
+                React.createElement(Action, { hasOptions: hasOptions }),
+                React.createElement(Options, {
+                    hasOptions: hasOptions,
+                    options: this.state.options,
+                    handleDeleteOptions: this.handleDeleteOptions }),
                 React.createElement(AddOption, null)
             );
         }
@@ -114,23 +128,13 @@ var Action = function (_React$Component3) {
 var Options = function (_React$Component4) {
     _inherits(Options, _React$Component4);
 
-    function Options(props) {
+    function Options() {
         _classCallCheck(this, Options);
 
-        var _this4 = _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).call(this, props));
-
-        _this4.handleRemoveAll = _this4.handleRemoveAll.bind(_this4); //this keeps the compnent form being rebound everytime it is called
-        return _this4;
+        return _possibleConstructorReturn(this, (Options.__proto__ || Object.getPrototypeOf(Options)).apply(this, arguments));
     }
 
     _createClass(Options, [{
-        key: 'handleRemoveAll',
-        value: function handleRemoveAll() {
-            console.log(this.props.options);
-            this.props.options = [];
-            console.log(this.props.options);
-        }
-    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -140,8 +144,8 @@ var Options = function (_React$Component4) {
                     'button',
                     { id: 'removeAll',
                         disabled: !this.props.hasOptions,
-                        onClick: this.handleRemoveAll,
-                        'class': 'btn btn-danger' },
+                        'class': 'btn btn-danger',
+                        onClick: this.props.handleDeleteOptions },
                     'Remove All'
                 ),
                 React.createElement(

@@ -1,20 +1,33 @@
 class IndecisionApp extends React.Component{
     constructor(props){
-        super(props);
+        super(props); 
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.state = {
             options: ['Walk dog', 'Wash dishes', 'Hunt rabbits']
         };
     }
     
+    handleDeleteOptions(){
+        this.setState(() => {
+            return {
+                options: []
+            };
+        });
+    }
+    
     render(){
         const appTitle = 'Indecison App';
         const appSubtitle = 'Put your life in the hands of a computer';
+        let hasOptions = this.state.options.length > 0; //results in boolean to check if array is empty
         
         return(
             <div>
                 <Header title={appTitle} subtitle={appSubtitle} />
-                <Action hasOptions={this.state.options.length > 0} />
-                <Options options={this.state.options} />
+                <Action hasOptions={hasOptions} />
+                <Options
+                    hasOptions={hasOptions}
+                    options={this.state.options} 
+                    handleDeleteOptions={this.handleDeleteOptions} />
                 <AddOption />
             </div>
         );
@@ -51,24 +64,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component{
-    constructor(props){
-        super(props);
-        this.handleRemoveAll = this.handleRemoveAll.bind(this); //this keeps the compnent form being rebound everytime it is called
-    }
-    
-    handleRemoveAll(){
-        console.log(this.props.options);
-        this.props.options = [];
-        console.log(this.props.options);
-    }
-    
     render(){
         return(
             <div>
                 <button id="removeAll"
                         disabled={!this.props.hasOptions}
-                        onClick={this.handleRemoveAll}
-                        class="btn btn-danger">Remove All</button>
+                        class="btn btn-danger"
+                        onClick={this.props.handleDeleteOptions}>Remove All</button>
                 <h3>Here are your options: {this.props.options.length}</h3>
                 <ol>
                     { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
