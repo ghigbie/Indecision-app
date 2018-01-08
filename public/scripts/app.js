@@ -17,7 +17,7 @@ var IndecisionApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
 
         _this.state = {
-            options: []
+            options: ['Walk dog', 'Wash dishes', 'Hunt rabbits']
         };
         return _this;
     }
@@ -27,14 +27,13 @@ var IndecisionApp = function (_React$Component) {
         value: function render() {
             var appTitle = 'Indecison App';
             var appSubtitle = 'Put your life in the hands of a computer';
-            var options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
 
             return React.createElement(
                 'div',
                 null,
                 React.createElement(Header, { title: appTitle, subtitle: appSubtitle }),
-                React.createElement(Action, null),
-                React.createElement(Options, { options: options }),
+                React.createElement(Action, { hasOptions: this.state.options.length > 0 }),
+                React.createElement(Options, { options: this.state.options }),
                 React.createElement(AddOption, null)
             );
         }
@@ -100,6 +99,7 @@ var Action = function (_React$Component3) {
                 React.createElement(
                     'button',
                     { id: 'what',
+                        disabled: !this.props.hasOptions,
                         onClick: this.handlePick,
                         'class': 'btn btn-default' },
                     'What should I do?'
@@ -139,6 +139,7 @@ var Options = function (_React$Component4) {
                 React.createElement(
                     'button',
                     { id: 'removeAll',
+                        disabled: !this.props.hasOptions,
                         onClick: this.handleRemoveAll,
                         'class': 'btn btn-danger' },
                     'Remove All'
@@ -205,6 +206,7 @@ var AddOption = function (_React$Component6) {
 
             if (option) {
                 alert(option);
+                this.state.options.push(option);
             }
         }
     }, {
