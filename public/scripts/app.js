@@ -11,10 +11,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var IndecisionApp = function (_React$Component) {
     _inherits(IndecisionApp, _React$Component);
 
-    function IndecisionApp() {
+    function IndecisionApp(props) {
         _classCallCheck(this, IndecisionApp);
 
-        return _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (IndecisionApp.__proto__ || Object.getPrototypeOf(IndecisionApp)).call(this, props));
+
+        _this.state = {
+            options: []
+        };
+        return _this;
     }
 
     _createClass(IndecisionApp, [{
@@ -23,6 +28,7 @@ var IndecisionApp = function (_React$Component) {
             var appTitle = 'Indecison App';
             var appSubtitle = 'Put your life in the hands of a computer';
             var options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
+
             return React.createElement(
                 'div',
                 null,
@@ -123,7 +129,6 @@ var Options = function (_React$Component4) {
             console.log(this.props.options);
             this.props.options = [];
             console.log(this.props.options);
-            ReactDOM.render(React.createElement(IndecisionApp, null), appRoot);
         }
     }, {
         key: 'render',

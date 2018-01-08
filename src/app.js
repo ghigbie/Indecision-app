@@ -1,8 +1,16 @@
 class IndecisionApp extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            options: []
+        };
+    }
+    
     render(){
         const appTitle = 'Indecison App';
         const appSubtitle = 'Put your life in the hands of a computer';
         const options = ['Thing one', 'Thing two', 'Thing three', 'Thing four'];
+        
         return(
             <div>
                 <Header title={appTitle} subtitle={appSubtitle}/>
@@ -52,7 +60,6 @@ class Options extends React.Component{
         console.log(this.props.options);
         this.props.options = [];
         console.log(this.props.options);
-        ReactDOM.render(<IndecisionApp />, appRoot);
     }
     
     render(){
