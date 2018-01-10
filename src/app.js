@@ -32,7 +32,7 @@ class IndecisionApp extends React.Component{
                 <Header title={appTitle} subtitle={appSubtitle} />
                 <Action 
                     hasOptions={hasOptions} 
-                    handlePick={this.handlePick}/>
+                    handlePick={this.handlePick} />
                 <Options
                     hasOptions={hasOptions}
                     options={this.state.options} 
