@@ -118,38 +118,36 @@ var Header = function (_React$Component2) {
     return Header;
 }(React.Component);
 
-var Action = function (_React$Component3) {
-    _inherits(Action, _React$Component3);
+var Action = function Action(props) {
+    return React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'button',
+            { id: 'what',
+                disabled: !props.hasOptions,
+                onClick: props.handlePick,
+                'class': 'btn btn-default' },
+            'What should I do?'
+        )
+    );
+};
 
-    function Action() {
-        _classCallCheck(this, Action);
+// class Action extends React.Component {
+//     render(){
+//         return(
+//             <div>
+//                 <button id="what"
+//                         disabled={!this.props.hasOptions}
+//                         onClick={this.props.handlePick}
+//                         class="btn btn-default">What should I do?</button>
+//             </div>
+//         );
+//     }
+// }
 
-        return _possibleConstructorReturn(this, (Action.__proto__ || Object.getPrototypeOf(Action)).apply(this, arguments));
-    }
-
-    _createClass(Action, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'button',
-                    { id: 'what',
-                        disabled: !this.props.hasOptions,
-                        onClick: this.props.handlePick,
-                        'class': 'btn btn-default' },
-                    'What should I do?'
-                )
-            );
-        }
-    }]);
-
-    return Action;
-}(React.Component);
-
-var Options = function (_React$Component4) {
-    _inherits(Options, _React$Component4);
+var Options = function (_React$Component3) {
+    _inherits(Options, _React$Component3);
 
     function Options() {
         _classCallCheck(this, Options);
@@ -193,8 +191,8 @@ var Options = function (_React$Component4) {
 
 var optionString = 'An option is here';
 
-var Option = function (_React$Component5) {
-    _inherits(Option, _React$Component5);
+var Option = function (_React$Component4) {
+    _inherits(Option, _React$Component4);
 
     function Option() {
         _classCallCheck(this, Option);
@@ -216,19 +214,19 @@ var Option = function (_React$Component5) {
     return Option;
 }(React.Component);
 
-var AddOption = function (_React$Component6) {
-    _inherits(AddOption, _React$Component6);
+var AddOption = function (_React$Component5) {
+    _inherits(AddOption, _React$Component5);
 
     function AddOption(props) {
         _classCallCheck(this, AddOption);
 
-        var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+        var _this5 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
-        _this6.handleAddOption = _this6.handleAddOption.bind(_this6);
-        _this6.state = {
+        _this5.handleAddOption = _this5.handleAddOption.bind(_this5);
+        _this5.state = {
             error: undefined
         };
-        return _this6;
+        return _this5;
     }
 
     _createClass(AddOption, [{
@@ -238,6 +236,10 @@ var AddOption = function (_React$Component6) {
             event.preventDefault();
             var option = event.target.elements.option.value.trim();
             var error = this.props.handleAddOption(option);
+
+            this.setState(function () {
+                return { error: error };
+            });
         }
     }, {
         key: 'render',
@@ -245,6 +247,11 @@ var AddOption = function (_React$Component6) {
             return React.createElement(
                 'div',
                 null,
+                this.state.error && React.createElement(
+                    'p',
+                    null,
+                    this.state.error
+                ),
                 React.createElement(
                     'form',
                     { onSubmit: this.handleAddOption },

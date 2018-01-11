@@ -72,18 +72,29 @@ class Header extends React.Component {   //extending this class give all of the 
     }    
 }
 
-class Action extends React.Component {
-    render(){
-        return(
-            <div>
-                <button id="what"
-                        disabled={!this.props.hasOptions}
-                        onClick={this.props.handlePick}
+const Action = (props) => {
+    return (
+        <div>
+            <button id="what"
+                        disabled={!props.hasOptions}
+                        onClick={props.handlePick}
                         class="btn btn-default">What should I do?</button>
-            </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+// class Action extends React.Component {
+//     render(){
+//         return(
+//             <div>
+//                 <button id="what"
+//                         disabled={!this.props.hasOptions}
+//                         onClick={this.props.handlePick}
+//                         class="btn btn-default">What should I do?</button>
+//             </div>
+//         );
+//     }
+// }
 
 class Options extends React.Component{
     render(){
@@ -126,11 +137,16 @@ class AddOption extends React.Component{
        event.preventDefault();
        const option = event.target.elements.option.value.trim();
        const error = this.props.handleAddOption(option);
+       
+       this.setState(() => {
+           return { error };
+       })
     }
     
     render(){
         return(
             <div>
+                {this.state.error && <p>{this.state.error}</p>}
                 <form onSubmit={this.handleAddOption}>
                     <input type="text"
                            id="option"
