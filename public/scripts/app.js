@@ -44,6 +44,12 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'handleAddOption',
         value: function handleAddOption(option) {
+            if (!option) {
+                return 'Please enter a valid option with words and stuf : )';
+            } else if (this.state.options.indexOf(option) > -1) {
+                return 'Please enter a valid option that does not already exist : )';
+            }
+
             console.log(option);
             this.setState(function (prevState) {
                 return {
@@ -219,6 +225,9 @@ var AddOption = function (_React$Component6) {
         var _this6 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
         _this6.handleAddOption = _this6.handleAddOption.bind(_this6);
+        _this6.state = {
+            error: undefined
+        };
         return _this6;
     }
 
@@ -228,11 +237,7 @@ var AddOption = function (_React$Component6) {
             console.log(event);
             event.preventDefault();
             var option = event.target.elements.option.value.trim();
-
-            if (option) {
-                console.log(option);
-                this.handleAddOption(option);
-            }
+            var error = this.props.handleAddOption(option);
         }
     }, {
         key: 'render',

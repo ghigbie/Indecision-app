@@ -24,6 +24,12 @@ class IndecisionApp extends React.Component{
     }
     
     handleAddOption(option){
+        if(!option){
+            return 'Please enter a valid option with words and stuf : )';
+        }else if(this.state.options.indexOf(option) > -1){
+            return 'Please enter a valid option that does not already exist : )';
+        }
+        
         console.log(option);
         this.setState((prevState) => {
            return{
@@ -110,17 +116,16 @@ class AddOption extends React.Component{
     constructor(props){
         super(props);
         this.handleAddOption = this.handleAddOption.bind(this);
+        this.state = {
+            error: undefined
+        };
     }
     
     handleAddOption(event){
        console.log(event);
        event.preventDefault();
        const option = event.target.elements.option.value.trim();
-       
-       if(option){
-           console.log(option);
-           this.handleAddOption(option);
-       }
+       const error = this.props.handleAddOption(option);
     }
     
     render(){
