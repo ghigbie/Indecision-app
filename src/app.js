@@ -3,6 +3,7 @@ class IndecisionApp extends React.Component{
         super(props); 
         this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
         this.handlePick = this.handlePick.bind(this);
+        this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
             options: ['Walk dog', 'Wash dishes', 'Hunt rabbits']
         };
@@ -22,11 +23,20 @@ class IndecisionApp extends React.Component{
         alert(randomChoice);
     }
     
+    handleAddOption(option){
+        console.log(option);
+        this.setState((prevState) => {
+           return{
+               options: prevState.options.concat(option)
+           }; 
+        });
+    }
+    
     render(){
         const appTitle = 'Indecison App';
         const appSubtitle = 'Put your life in the hands of a computer';
         let hasOptions = this.state.options.length > 0; //results in boolean to check if array is empty
-        
+    
         return(
             <div>
                 <Header title={appTitle} subtitle={appSubtitle} />
@@ -37,7 +47,8 @@ class IndecisionApp extends React.Component{
                     hasOptions={hasOptions}
                     options={this.state.options} 
                     handleDeleteOptions={this.handleDeleteOptions} />
-                <AddOption />
+                <AddOption 
+                    handleAddOption={this.handleAddOption} />
             </div>
         );
     }
@@ -96,13 +107,19 @@ class Option extends React.Component{
 }
 
 class AddOption extends React.Component{
-    handleAddOption(e){
-       e.preventDefault();
-       const option = e.target.elements.option.value.trim();
+    constructor(props){
+        super(props);
+        this.handleAddOption = this.handleAddOption.bind(this);
+    }
+    
+    handleAddOption(event){
+       console.log(event);
+       event.preventDefault();
+       const option = event.target.elements.option.value.trim();
        
        if(option){
-           alert(option);
-           this.state.options.push(option);
+           console.log(option);
+           this.handleAddOption(option);
        }
     }
     
