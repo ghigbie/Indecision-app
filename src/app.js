@@ -39,13 +39,13 @@ class IndecisionApp extends React.Component{
     }
     
     render(){
-        const appTitle = 'Indecison App';
-        const appSubtitle = 'Put your life in the hands of a computer';
+        const title = 'Indecison App';
+        const subtitle = 'Put your life in the hands of a computer';
         let hasOptions = this.state.options.length > 0; //results in boolean to check if array is empty
     
         return(
             <div>
-                <Header title={appTitle} subtitle={appSubtitle} />
+                <Header title={title} subtitle={subtitle} />
                 <Action 
                     hasOptions={hasOptions} 
                     handlePick={this.handlePick} />
@@ -64,9 +64,14 @@ const Header = (props) => {
     return(
         <div>
             <h1>{props.title}</h1>
-            <h2>{props.subtible}</h2>
+            {props.subtitle && <h2>{props.subtitle}</h2>}
         </div>
     );
+};
+
+Header.defaultProps = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer'
 };
 
 const Action = (props) => {
@@ -95,32 +100,7 @@ const Options = (props) => {
         );
 };
 
-// class Options extends React.Component{
-//     render(){
-        // return(
-        //     <div>
-        //         <button id="removeAll"
-        //                 disabled={!this.props.hasOptions}
-        //                 class="btn btn-danger"
-        //                 onClick={this.props.handleDeleteOptions}>Remove All</button>
-        //         <h3>Here are your options: {this.props.options.length}</h3>
-        //         <ol>
-        //             { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
-        //         </ol>
-        //     </div>
-        // );
-//     }   
-// }
-
 const optionString = 'An option is here';
-
-// class Option extends React.Component{
-//     render(){
-//         return(
-//             <li>{this.props.optionText}</li>
-//         );
-//     }
-// }
 
 const Option = (props) => {
     return(

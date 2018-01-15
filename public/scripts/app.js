@@ -60,14 +60,14 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var appTitle = 'Indecison App';
-            var appSubtitle = 'Put your life in the hands of a computer';
+            var title = 'Indecison App';
+            var subtitle = 'Put your life in the hands of a computer';
             var hasOptions = this.state.options.length > 0; //results in boolean to check if array is empty
 
             return React.createElement(
                 'div',
                 null,
-                React.createElement(Header, { title: appTitle, subtitle: appSubtitle }),
+                React.createElement(Header, { title: title, subtitle: subtitle }),
                 React.createElement(Action, {
                     hasOptions: hasOptions,
                     handlePick: this.handlePick }),
@@ -93,12 +93,17 @@ var Header = function Header(props) {
             null,
             props.title
         ),
-        React.createElement(
+        props.subtitle && React.createElement(
             'h2',
             null,
-            props.subtible
+            props.subtitle
         )
     );
+};
+
+Header.defaultProps = {
+    title: 'Indecision App',
+    subtitle: 'Put your life in the hands of a computer'
 };
 
 var Action = function Action(props) {
@@ -144,32 +149,7 @@ var Options = function Options(props) {
     );
 };
 
-// class Options extends React.Component{
-//     render(){
-// return(
-//     <div>
-//         <button id="removeAll"
-//                 disabled={!this.props.hasOptions}
-//                 class="btn btn-danger"
-//                 onClick={this.props.handleDeleteOptions}>Remove All</button>
-//         <h3>Here are your options: {this.props.options.length}</h3>
-//         <ol>
-//             { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
-//         </ol>
-//     </div>
-// );
-//     }   
-// }
-
 var optionString = 'An option is here';
-
-// class Option extends React.Component{
-//     render(){
-//         return(
-//             <li>{this.props.optionText}</li>
-//         );
-//     }
-// }
 
 var Option = function Option(props) {
     return React.createElement(
