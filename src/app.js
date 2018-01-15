@@ -83,6 +83,7 @@ const Action = (props) => {
     );
 };
 
+
 // class Action extends React.Component {
 //     render(){
 //         return(
@@ -115,13 +116,19 @@ class Options extends React.Component{
 
 const optionString = 'An option is here';
 
-class Option extends React.Component{
-    render(){
-        return(
-            <li>{this.props.optionText}</li>
-        );
-    }
-}
+// class Option extends React.Component{
+//     render(){
+//         return(
+//             <li>{this.props.optionText}</li>
+//         );
+//     }
+// }
+
+const Option = (props) => {
+    return(
+        <li>{props.optionText}</li>
+    );
+};
 
 class AddOption extends React.Component{
     constructor(props){
@@ -161,15 +168,15 @@ class AddOption extends React.Component{
     }
 }
 
-const User = () => {
-    return(
-        <div>
-            <p>Name: </p>
-            <p>Age: </p>
-        </div>
-    );
-}
+// const User = (props) => {
+//     return(
+//         <div>
+//             <p>Name: {props.name}</p>
+//             <p>Age: {props.age}</p>
+//         </div>
+//     );
+// }
 
 const appRoot = document.getElementById('react-container');
 
-ReactDOM.render(<User />, appRoot);
+ReactDOM.render(<IndecisionApp />, appRoot);

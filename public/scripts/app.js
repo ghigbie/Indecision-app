@@ -191,42 +191,35 @@ var Options = function (_React$Component3) {
 
 var optionString = 'An option is here';
 
-var Option = function (_React$Component4) {
-    _inherits(Option, _React$Component4);
+// class Option extends React.Component{
+//     render(){
+//         return(
+//             <li>{this.props.optionText}</li>
+//         );
+//     }
+// }
 
-    function Option() {
-        _classCallCheck(this, Option);
+var Option = function Option(props) {
+    return React.createElement(
+        'li',
+        null,
+        props.optionText
+    );
+};
 
-        return _possibleConstructorReturn(this, (Option.__proto__ || Object.getPrototypeOf(Option)).apply(this, arguments));
-    }
-
-    _createClass(Option, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'li',
-                null,
-                this.props.optionText
-            );
-        }
-    }]);
-
-    return Option;
-}(React.Component);
-
-var AddOption = function (_React$Component5) {
-    _inherits(AddOption, _React$Component5);
+var AddOption = function (_React$Component4) {
+    _inherits(AddOption, _React$Component4);
 
     function AddOption(props) {
         _classCallCheck(this, AddOption);
 
-        var _this5 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
+        var _this4 = _possibleConstructorReturn(this, (AddOption.__proto__ || Object.getPrototypeOf(AddOption)).call(this, props));
 
-        _this5.handleAddOption = _this5.handleAddOption.bind(_this5);
-        _this5.state = {
+        _this4.handleAddOption = _this4.handleAddOption.bind(_this4);
+        _this4.state = {
             error: undefined
         };
-        return _this5;
+        return _this4;
     }
 
     _createClass(AddOption, [{
@@ -274,23 +267,15 @@ var AddOption = function (_React$Component5) {
     return AddOption;
 }(React.Component);
 
-var User = function User() {
-    return React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'p',
-            null,
-            'Name: '
-        ),
-        React.createElement(
-            'p',
-            null,
-            'Age: '
-        )
-    );
-};
+// const User = (props) => {
+//     return(
+//         <div>
+//             <p>Name: {props.name}</p>
+//             <p>Age: {props.age}</p>
+//         </div>
+//     );
+// }
 
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(React.createElement(User, null), appRoot);
+ReactDOM.render(React.createElement(IndecisionApp, null), appRoot);
