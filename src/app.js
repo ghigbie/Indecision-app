@@ -161,6 +161,15 @@ class AddOption extends React.Component{
     }
 }
 
+const User = () => {
+    return(
+        <div>
+            <p>Name: </p>
+            <p>Age: </p>
+        </div>
+    );
+}
+
 const appRoot = document.getElementById('react-container');
 
-ReactDOM.render(<IndecisionApp />, appRoot);
+ReactDOM.render(<User />, appRoot);

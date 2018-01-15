@@ -274,6 +274,23 @@ var AddOption = function (_React$Component5) {
     return AddOption;
 }(React.Component);
 
+var User = function User() {
+    return React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'p',
+            null,
+            'Name: '
+        ),
+        React.createElement(
+            'p',
+            null,
+            'Age: '
+        )
+    );
+};
+
 var appRoot = document.getElementById('react-container');
 
-ReactDOM.render(React.createElement(IndecisionApp, null), appRoot);
+ReactDOM.render(React.createElement(User, null), appRoot);
