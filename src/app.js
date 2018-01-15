@@ -72,6 +72,15 @@ class Header extends React.Component {   //extending this class give all of the 
     }    
 }
 
+const Header = (props) => {
+    return(
+        <div>
+            <h1>{props.title}</h1>
+            <h2>{props.subtible}</h2>
+        </div>
+    );
+};
+
 const Action = (props) => {
     return (
         <div>
@@ -96,6 +105,21 @@ const Action = (props) => {
 //         );
 //     }
 // }
+
+const Options = (props) => {
+    return(
+        <div>
+            <button id="removeAll"
+                    disabled={!props.hasOptions}
+                    class="btn btn-danger"
+                    onClick={props.options.length}>Remove All</button>
+            <h3>Here are your options: {props.options.lengthj}</h3>
+            <ol>
+                {props.options.map((option) => <Option key={option} optionText={option}/>)}
+            </ol>
+        </div>
+    );
+};
 
 class Options extends React.Component{
     render(){
