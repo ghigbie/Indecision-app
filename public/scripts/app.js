@@ -20,7 +20,7 @@ var IndecisionApp = function (_React$Component) {
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.state = {
-            options: ['Walk dog', 'Wash dishes', 'Hunt rabbits']
+            options: props.options
         };
         return _this;
     }
@@ -29,9 +29,7 @@ var IndecisionApp = function (_React$Component) {
         key: 'handleDeleteOptions',
         value: function handleDeleteOptions() {
             this.setState(function () {
-                return {
-                    options: []
-                };
+                return { options: [] };
             });
         }
     }, {
@@ -83,6 +81,10 @@ var IndecisionApp = function (_React$Component) {
 
     return IndecisionApp;
 }(React.Component);
+
+IndecisionApp.defaultProps = {
+    options: []
+};
 
 var Header = function Header(props) {
     return React.createElement(
@@ -181,7 +183,6 @@ var AddOption = function (_React$Component2) {
             event.preventDefault();
             var option = event.target.elements.option.value.trim();
             var error = this.props.handleAddOption(option);
-
             this.setState(function () {
                 return { error: error };
             });
@@ -218,15 +219,6 @@ var AddOption = function (_React$Component2) {
 
     return AddOption;
 }(React.Component);
-
-// const User = (props) => {
-//     return(
-//         <div>
-//             <p>Name: {props.name}</p>
-//             <p>Age: {props.age}</p>
-//         </div>
-//     );
-// }
 
 var appRoot = document.getElementById('react-container');
 
