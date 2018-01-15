@@ -60,18 +60,6 @@ class IndecisionApp extends React.Component{
     }
 }
 
-
-class Header extends React.Component {   //extending this class give all of the features of React
-    render(){  //The component class requires render to be implimented andmust return JSX
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <h2>{this.props.subtitle}</h2>
-            </div>
-        );
-    }    
-}
-
 const Header = (props) => {
     return(
         <div>
@@ -92,51 +80,37 @@ const Action = (props) => {
     );
 };
 
-
-// class Action extends React.Component {
-//     render(){
-//         return(
-//             <div>
-//                 <button id="what"
-//                         disabled={!this.props.hasOptions}
-//                         onClick={this.props.handlePick}
-//                         class="btn btn-default">What should I do?</button>
-//             </div>
-//         );
-//     }
-// }
-
 const Options = (props) => {
-    return(
-        <div>
-            <button id="removeAll"
-                    disabled={!props.hasOptions}
-                    class="btn btn-danger"
-                    onClick={props.options.length}>Remove All</button>
-            <h3>Here are your options: {props.options.lengthj}</h3>
-            <ol>
-                {props.options.map((option) => <Option key={option} optionText={option}/>)}
-            </ol>
-        </div>
-    );
-};
-
-class Options extends React.Component{
-    render(){
         return(
             <div>
                 <button id="removeAll"
-                        disabled={!this.props.hasOptions}
+                        disabled={!props.hasOptions}
                         class="btn btn-danger"
-                        onClick={this.props.handleDeleteOptions}>Remove All</button>
-                <h3>Here are your options: {this.props.options.length}</h3>
+                        onClick={props.handleDeleteOptions}>Remove All</button>
+                <h3>Here are your options: {props.options.length}</h3>
                 <ol>
-                    { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
+                    { props.options.map((option) => <Option key={option} optionText={option}/>) }
                 </ol>
             </div>
         );
-    }   
-}
+};
+
+// class Options extends React.Component{
+//     render(){
+        // return(
+        //     <div>
+        //         <button id="removeAll"
+        //                 disabled={!this.props.hasOptions}
+        //                 class="btn btn-danger"
+        //                 onClick={this.props.handleDeleteOptions}>Remove All</button>
+        //         <h3>Here are your options: {this.props.options.length}</h3>
+        //         <ol>
+        //             { this.props.options.map((option) => <Option key={option} optionText={option}/>) }
+        //         </ol>
+        //     </div>
+        // );
+//     }   
+// }
 
 const optionString = 'An option is here';
 
