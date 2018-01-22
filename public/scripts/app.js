@@ -136,9 +136,10 @@ var Options = function Options(props) {
             'button',
             { id: 'removeAll',
                 disabled: !props.hasOptions,
-                'class': 'btn btn-danger',
-                onClick: props.handleDeleteOptions },
-            'Remove All'
+                'class': 'btn btn-danger' },
+            'onClick=',
+            props.handleDeleteOptions,
+            '>Remove All'
         ),
         React.createElement(
             'h3',

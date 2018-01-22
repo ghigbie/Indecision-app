@@ -92,7 +92,7 @@ const Options = (props) => {
             <div>
                 <button id="removeAll"
                         disabled={!props.hasOptions}
-                        class="btn btn-danger"
+                        class="btn btn-danger">
                         onClick={props.handleDeleteOptions}>Remove All</button>
                 <h3>Here are your options: {props.options.length}</h3>
                 <ol>
